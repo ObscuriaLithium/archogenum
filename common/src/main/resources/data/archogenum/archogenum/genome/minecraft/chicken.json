@@ -1,0 +1,11 @@
+{
+  "entities": [
+    "minecraft:chicken"
+  ],
+  "genes": [
+    "archogenum:feather_growth",
+    "archogenum:avian_crop",
+    "archogenum:brittle_bones",
+    "archogenum:avian_call"
+  ]
+}

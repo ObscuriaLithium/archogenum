@@ -1,0 +1,10 @@
+{
+  "category": "harmful",
+  "texture": "archogenum:textures/gui/gene/sheep.png",
+  "group": "sheep",
+  "color": "#90ddff",
+  "max_expression": 3,
+  "metabolic_efficiency": 2,
+  "complexity": 1,
+  "cost": []
+}

@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.obscuria.archogenum.fabric.mixin",
+  "refmap": "${mod_id}.refmap.json",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [],
+  "client": [
+    "MixinClientTooltipComponent"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+    }
+  }
+  

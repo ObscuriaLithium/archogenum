@@ -1,0 +1,9 @@
+{
+  "type": "archogenum:effects",
+  "effects": [
+    {
+      "effect": "minecraft:regeneration",
+      "amplifier": 0
+    }
+  ]
+}

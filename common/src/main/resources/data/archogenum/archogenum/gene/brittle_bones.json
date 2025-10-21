@@ -1,0 +1,13 @@
+{
+  "category": "harmful",
+  "texture": "archogenum:textures/gui/gene/chicken.png",
+  "group": "chicken",
+  "color": "#90ddff",
+  "max_expression": 3,
+  "metabolic_efficiency": 2,
+  "complexity": 1,
+  "cost": [],
+  "traits": [
+    "archogenum:modifiers/brittle_bones"
+  ]
+}

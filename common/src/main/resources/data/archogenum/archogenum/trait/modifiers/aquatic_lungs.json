@@ -1,0 +1,10 @@
+{
+  "type": "archogenum:modifiers",
+  "modifiers": [
+    {
+      "attribute": "archogenum:generic.respiration_efficiency",
+      "operation": "multiply_base",
+      "amount": 2.0
+    }
+  ]
+}

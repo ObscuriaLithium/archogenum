@@ -1,0 +1,23 @@
+{
+  "category": "beneficial",
+  "texture": "archogenum:textures/gui/gene/wither.png",
+  "group": "wither",
+  "color": "#90ddff",
+  "is_archogene": true,
+  "max_expression": 3,
+  "metabolic_efficiency": -2,
+  "complexity": 2,
+  "cost": [
+    {
+      "item": "minecraft:wither_rose",
+      "count": 1
+    },
+    {
+      "item": "minecraft:nether_wart",
+      "count": 32
+    }
+  ],
+  "traits": [
+    "archogenum:cosmetic/energy_barrier"
+  ]
+}

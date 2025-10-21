@@ -1,0 +1,11 @@
+{
+  "entities": [
+    "minecraft:squid"
+  ],
+  "genes": [
+    "archogenum:ink_sac",
+    "archogenum:aquatic_lungs",
+    "archogenum:soft_body",
+    "archogenum:slippery_skin"
+  ]
+}

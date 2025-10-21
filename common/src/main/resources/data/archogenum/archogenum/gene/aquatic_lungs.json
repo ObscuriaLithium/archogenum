@@ -1,0 +1,22 @@
+{
+  "category": "beneficial",
+  "texture": "archogenum:textures/gui/gene/squid.png",
+  "group": "squid",
+  "color": "#ff20ff",
+  "max_expression": 3,
+  "metabolic_efficiency": 2,
+  "complexity": 1,
+  "cost": [
+    {
+      "item": "minecraft:nautilus_shell",
+      "count": 1
+    },
+    {
+      "item": "minecraft:kelp",
+      "count": 32
+    }
+  ],
+  "traits": [
+    "archogenum:modifiers/aquatic_lungs"
+  ]
+}

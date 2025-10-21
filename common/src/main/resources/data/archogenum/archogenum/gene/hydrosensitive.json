@@ -1,0 +1,18 @@
+{
+  "category": "harmful",
+  "texture": "archogenum:textures/gui/gene/ender.png",
+  "group": "ender",
+  "color": "#90ddff",
+  "max_expression": 1,
+  "metabolic_efficiency": 6,
+  "complexity": 1,
+  "cost": [
+    {
+      "item": "minecraft:ender_pearl",
+      "count": 1
+    }
+  ],
+  "traits": [
+    "archogenum:water_intolerance"
+  ]
+}

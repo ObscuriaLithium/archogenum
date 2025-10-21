@@ -1,0 +1,18 @@
+{
+  "category": "beneficial",
+  "texture": "archogenum:textures/gui/gene/squid.png",
+  "group": "squid",
+  "color": "#90ddff",
+  "max_expression": 3,
+  "metabolic_efficiency": 2,
+  "complexity": 1,
+  "cost": [
+    {
+      "item": "minecraft:ink_sac",
+      "count": 16
+    }
+  ],
+  "traits": [
+    "archogenum:drops/inc_sac"
+  ]
+}

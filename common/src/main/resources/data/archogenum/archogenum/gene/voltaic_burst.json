@@ -1,0 +1,18 @@
+{
+  "category": "beneficial",
+  "texture": "archogenum:textures/gui/gene/creeper.png",
+  "group": "creeper",
+  "color": "#90ddff",
+  "max_expression": 3,
+  "metabolic_efficiency": -2,
+  "complexity": 2,
+  "cost": [
+    {
+      "item": "minecraft:gunpowder",
+      "count": 32
+    }
+  ],
+  "traits": [
+    "archogenum:cosmetic/power_aura"
+  ]
+}

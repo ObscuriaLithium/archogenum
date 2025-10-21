@@ -1,0 +1,16 @@
+{
+  "category": "harmful",
+  "texture": "archogenum:textures/gui/gene/wither.png",
+  "group": "wither",
+  "color": "#ff20ff",
+  "max_expression": 3,
+  "metabolic_efficiency": 2,
+  "complexity": 1,
+  "cost": [
+    {
+      "item": "minecraft:nether_wart",
+      "count": 8
+    }
+  ],
+  "traits": []
+}

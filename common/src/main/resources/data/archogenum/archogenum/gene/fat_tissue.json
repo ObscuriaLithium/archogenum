@@ -1,0 +1,13 @@
+{
+  "category": "beneficial",
+  "texture": "archogenum:textures/gui/gene/piglin.png",
+  "group": "pig",
+  "color": "#90ddff",
+  "max_expression": 3,
+  "metabolic_efficiency": 0,
+  "complexity": 1,
+  "cost": [],
+  "traits": [
+    "archogenum:modifiers/fat_tissue"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "archogenum:modifiers",
+  "modifiers": [
+    {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "amount": 6.0
+    },
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "multiply_base",
+      "amount": -0.1
+    }
+  ]
+}

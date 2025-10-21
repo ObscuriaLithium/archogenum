@@ -1,0 +1,14 @@
+{
+  "providers": [
+    {
+      "type": "ttf",
+      "file": "archogenum:archogenum.ttf",
+      "shift": [
+        0,
+        0.8
+      ],
+      "size": 11.0,
+      "oversample": 10.0
+    }
+  ]
+}

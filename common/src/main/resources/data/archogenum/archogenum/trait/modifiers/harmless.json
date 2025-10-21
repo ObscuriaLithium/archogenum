@@ -1,0 +1,10 @@
+{
+  "type": "archogenum:modifiers",
+  "modifiers": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "operation": "multiply_base",
+      "amount": -0.5
+    }
+  ]
+}

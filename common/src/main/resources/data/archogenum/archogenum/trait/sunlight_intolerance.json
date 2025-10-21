@@ -1,0 +1,38 @@
+{
+  "type": "archogenum:behavior",
+  "category": "harmful",
+  "triggers": [
+    {
+      "type": "archogenum:tick",
+      "interval": 20,
+      "effects": [
+        {
+          "requirements": {
+            "condition": "archogenum:all_of",
+            "terms": [
+              {
+                "condition": "archogenum:world_state",
+                "is_day": true
+              },
+              {
+                "condition": "archogenum:entity_armor",
+                "entity_to_check": "this",
+                "wears_any_helmet": false
+              },
+              {
+                "condition": "archogenum:entity_state",
+                "entity_to_check": "this",
+                "is_in_water_or_rain": false,
+                "can_see_sky": true
+              }
+            ]
+          },
+          "effect": {
+            "type": "archogenum:ignite",
+            "seconds": 8
+          }
+        }
+      ]
+    }
+  ]
+}

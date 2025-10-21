@@ -1,0 +1,23 @@
+{
+  "category": "beneficial",
+  "texture": "archogenum:textures/gui/gene/ender.png",
+  "group": "ender",
+  "color": "#90ddff",
+  "is_archogene": true,
+  "max_expression": 3,
+  "metabolic_efficiency": -2,
+  "complexity": 2,
+  "cost": [
+    {
+      "item": "minecraft:dragon_breath",
+      "count": 1
+    },
+    {
+      "item": "minecraft:ender_eye",
+      "count": 16
+    }
+  ],
+  "traits": [
+    "archogenum:keep_inventory"
+  ]
+}

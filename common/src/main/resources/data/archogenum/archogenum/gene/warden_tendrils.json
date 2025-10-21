@@ -1,0 +1,18 @@
+{
+  "category": "cosmetic",
+  "texture": "archogenum:textures/gui/gene/warden.png",
+  "group": "warden",
+  "color": "#90ddff",
+  "max_expression": 3,
+  "metabolic_efficiency": 2,
+  "complexity": 1,
+  "cost": [
+    {
+      "item": "minecraft:echo_shard",
+      "count": 2
+    }
+  ],
+  "traits": [
+    "archogenum:cosmetic/warden_tendrils"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "music.background": {
+    "sounds": [
+      {
+        "name": "archogenum:music/background",
+        "stream": true
+      }
+    ]
+  },
+  "music.music_disc": {
+    "sounds": [
+      {
+        "name": "archogenum:music/music_disc",
+        "stream": true
+      }
+    ]
+  },
+  "ui.click_1": {
+    "sounds": [
+      {
+        "name": "archogenum:ui/click_1",
+        "pitch": 0.9
+      },
+      {
+        "name": "archogenum:ui/click_1",
+        "pitch": 1.0
+      },
+      {
+        "name": "archogenum:ui/click_1",
+        "pitch": 1.1
+      }
+    ]
+  },
+  "ui.click_2": {
+    "sounds": [
+      {
+        "name": "archogenum:ui/click_2",
+        "pitch": 0.9
+      },
+      {
+        "name": "archogenum:ui/click_2",
+        "pitch": 1.0
+      },
+      {
+        "name": "archogenum:ui/click_2",
+        "pitch": 1.1
+      }
+    ]
+  },
+  "ui.bell": {
+    "sounds": [
+      {
+        "name": "archogenum:ui/bell",
+        "pitch": 0.9
+      },
+      {
+        "name": "archogenum:ui/bell",
+        "pitch": 1.0
+      },
+      {
+        "name": "archogenum:ui/bell",
+        "pitch": 1.1
+      }
+    ]
+  },
+  "ui.scroll": {
+    "sounds": [
+      {
+        "name": "archogenum:ui/scroll",
+        "pitch": 0.9
+      },
+      {
+        "name": "archogenum:ui/scroll",
+        "pitch": 1.0
+      },
+      {
+        "name": "archogenum:ui/scroll",
+        "pitch": 1.1
+      }
+    ]
+  }
+}

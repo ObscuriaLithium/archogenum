@@ -1,0 +1,10 @@
+{
+  "entities": [
+    "minecraft:sheep"
+  ],
+  "genes": [
+    "archogenum:soft_hooves",
+    "archogenum:herb_instinct",
+    "archogenum:harmless"
+  ]
+}

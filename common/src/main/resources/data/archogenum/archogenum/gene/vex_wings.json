@@ -1,0 +1,18 @@
+{
+  "category": "cosmetic",
+  "texture": "archogenum:textures/gui/gene/vex.png",
+  "group": "vex",
+  "color": "#90ddff",
+  "max_expression": 3,
+  "metabolic_efficiency": 2,
+  "complexity": 1,
+  "cost": [
+    {
+      "item": "minecraft:emerald",
+      "count": 8
+    }
+  ],
+  "traits": [
+    "archogenum:cosmetic/vex_wings"
+  ]
+}
