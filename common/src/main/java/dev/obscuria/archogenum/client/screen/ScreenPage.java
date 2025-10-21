@@ -13,7 +13,7 @@ import org.lwjgl.glfw.GLFW;
 import java.util.function.Supplier;
 
 public enum ScreenPage implements StringRepresentable {
-    MY_XENOTYPE(GLFW.GLFW_KEY_0, GenesPage::new),
+    //MY_XENOTYPE(GLFW.GLFW_KEY_0, GenesPage::new),
     GENES(GLFW.GLFW_KEY_1, GenesPage::new),
     VESSELS(GLFW.GLFW_KEY_2, VesselsPage::new),
     XENOFRUITS(GLFW.GLFW_KEY_3, XenofruitsPage::new),

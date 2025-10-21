@@ -5,7 +5,7 @@
  <a href="https://discord.gg/jSHHJSUWdY" target="_blank" rel="nofollow"><img alt="Discord" src="https://img.shields.io/discord/899742852681191444?style=for-the-badge&logo=discord&logoColor=white&label=&labelColor=231C25&color=782531"></a>
 </p>
 
-## <p style="text-align:center">Archogenum lets you embrace the role of a gene-engineer. Extract, combine, and rewrite the essence of living beings to forge unique xenotypes – mutable genetic blueprints that shape your survival, strength, and playstyle.</p>
+## <p style="text-align:center">Archogenum lets you embrace the role of a gene-engineer. Extract, combine, and rewrite the essence of living beings to synthesize unique xenofruits – mutable genetic blueprints that shape your survival, strength, and playstyle.</p>
 
 <br>
 

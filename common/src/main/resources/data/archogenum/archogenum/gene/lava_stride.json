@@ -1,0 +1,19 @@
+{
+  "category": "beneficial",
+  "texture": "archogenum:textures/gui/gene/strider.png",
+  "group": "strider",
+  "color": "#ff2020",
+  "max_expression": 1,
+  "metabolic_efficiency": -2,
+  "complexity": 2,
+  "cost": [
+    {
+      "item": "minecraft:magma_cream",
+      "count": 12
+    }
+  ],
+  "traits": [
+    "archogenum:lava_walking",
+    "archogenum:lava_immunity"
+  ]
+}

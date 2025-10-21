@@ -44,7 +44,7 @@ public final class RandomVesselCommand {
             result.add(new GeneInstance(gene, 1));
         }
 
-        final var vessel = ArchoItems.GENE_PACK.instantiate();
+        final var vessel = ArchoItems.ECHO_VESSEL.instantiate();
         EchoVesselItem.setStoredGenes(vessel, new StoredGenes(result));
         if (!player.addItem(vessel)) player.drop(vessel, false);
         return 1;

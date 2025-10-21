@@ -2,10 +2,10 @@
   "category": "beneficial",
   "texture": "archogenum:textures/gui/gene/creeper.png",
   "group": "creeper",
-  "color": "#90ddff",
-  "max_expression": 3,
-  "metabolic_efficiency": -2,
-  "complexity": 2,
+  "color": "#20ff27",
+  "max_expression": 1,
+  "metabolic_efficiency": -4,
+  "complexity": 4,
   "cost": [
     {
       "item": "minecraft:gunpowder",

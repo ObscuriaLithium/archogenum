@@ -2,9 +2,9 @@
   "category": "cosmetic",
   "texture": "archogenum:textures/gui/gene/vex.png",
   "group": "vex",
-  "color": "#90ddff",
-  "max_expression": 3,
-  "metabolic_efficiency": 2,
+  "color": "#20f4ff",
+  "max_expression": 1,
+  "metabolic_efficiency": 1,
   "complexity": 1,
   "cost": [
     {

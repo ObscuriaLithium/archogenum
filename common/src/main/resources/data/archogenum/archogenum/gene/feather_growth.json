@@ -2,9 +2,9 @@
   "category": "beneficial",
   "texture": "archogenum:textures/gui/gene/chicken.png",
   "group": "chicken",
-  "color": "#90ddff",
-  "max_expression": 3,
-  "metabolic_efficiency": 2,
+  "color": "#ffc020",
+  "max_expression": 1,
+  "metabolic_efficiency": -2,
   "complexity": 1,
   "cost": [
     {

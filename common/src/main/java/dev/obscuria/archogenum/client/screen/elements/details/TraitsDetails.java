@@ -4,8 +4,8 @@ import dev.obscuria.archogenum.client.screen.nodes.HierarchicalNode;
 import dev.obscuria.archogenum.client.screen.tool.GlobalTransform;
 import dev.obscuria.archogenum.world.genetics.basis.Gene;
 import dev.obscuria.archogenum.world.genetics.basis.IBundleLike;
-import dev.obscuria.archogenum.world.genetics.behavior.ITrait;
-import dev.obscuria.archogenum.world.genetics.behavior.TraitComponent;
+import dev.obscuria.archogenum.world.genetics.trait.ITrait;
+import dev.obscuria.archogenum.world.genetics.trait.TraitComponent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.MultiLineLabel;
@@ -63,7 +63,7 @@ public class TraitsDetails extends AbstractDetails {
         @Override
         public void reorganize() {
             final var font = Minecraft.getInstance().font;
-            this.label = MultiLineLabel.create(font, component.paleFormatted(), (int) ((rect.width() - 10f) / SCALE));
+            this.label = MultiLineLabel.create(font, component.paleFormatted(), (int) ((rect.width() - 12f) / SCALE));
             this.rect.setHeight(Math.max(12, 2 + (int) Math.ceil((10 * label.getLineCount() - 1) * SCALE)));
         }
     }

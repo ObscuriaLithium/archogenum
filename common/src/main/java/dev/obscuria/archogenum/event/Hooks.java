@@ -6,11 +6,6 @@ import net.minecraft.world.entity.player.Player;
 
 public final class Hooks {
 
-    public static int modifyFallDamage(LivingEntity entity, int damage) {
-        final var multiplier = entity.getAttributeValue(ArchoAttributes.FALL_DAMAGE.get());
-        return (int) Math.ceil(damage * multiplier);
-    }
-
     public static float modifyExhaustion(Player player, float value) {
         final var rate = player.getAttributeValue(ArchoAttributes.HUNGER_RATE.get());
         return value * (float) rate;

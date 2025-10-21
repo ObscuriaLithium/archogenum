@@ -2,21 +2,29 @@ package dev.obscuria.archogenum.client.screen.elements;
 
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
+import dev.obscuria.archogenum.client.screen.ArchoPalette;
 import dev.obscuria.archogenum.client.screen.ArchoTextures;
 import dev.obscuria.archogenum.client.screen.GuiUtil;
 import dev.obscuria.archogenum.world.genetics.Xenotype;
 import dev.obscuria.archogenum.world.genetics.resource.XenotypeHandler;
+import dev.obscuria.fragmentum.util.easing.Easing;
+import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.PlayerModelPart;
+import org.apache.commons.lang3.RandomUtils;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
+import org.joml.Vector2f;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class DummyDisplay extends AbstractWidget {
@@ -24,7 +32,8 @@ public class DummyDisplay extends AbstractWidget {
     public static Xenotype xenotype = Xenotype.EMPTY;
     public static boolean isHidden = false;
 
-    private static final AbstractClientPlayer DUMMY_PLAYER;
+    private static final AbstractClientPlayer dummyPlayer;
+    private static final List<Particle> particles = new ArrayList<>();
 
     private final int scale;
 
@@ -45,13 +54,15 @@ public class DummyDisplay extends AbstractWidget {
         graphics.pose().popPose();
         RenderSystem.disableBlend();
 
-        XenotypeHandler.setXenotype(DUMMY_PLAYER, xenotype);
+        for (var particle : this.particles) particle.render(graphics);
+
+        XenotypeHandler.setXenotype(dummyPlayer, xenotype);
         final var virtualMouseX = (getX() - mouseX) / 4f;
         final var virtualMouseY = (getY() - mouseY) / 4f - (scale / 2f);
 
         if (isHidden) {
             RenderSystem.setShaderColor(0f, 0f, 0f, 1f);
-            renderEntity(graphics, getX(), getY(), scale, virtualMouseX, virtualMouseY, DUMMY_PLAYER);
+            renderEntity(graphics, getX(), getY(), scale, virtualMouseX, virtualMouseY, dummyPlayer);
             RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
             graphics.pose().pushPose();
             graphics.pose().translate(getX(), getY() - scale * 1.1f, 400);
@@ -59,7 +70,7 @@ public class DummyDisplay extends AbstractWidget {
             GuiUtil.draw(graphics, ArchoTextures.LOCK, -12, -12, 24, 24);
             graphics.pose().popPose();
         } else {
-            renderEntity(graphics, getX(), getY(), scale, virtualMouseX, virtualMouseY, DUMMY_PLAYER);
+            renderEntity(graphics, getX(), getY(), scale, virtualMouseX, virtualMouseY, dummyPlayer);
         }
     }
 
@@ -67,8 +78,14 @@ public class DummyDisplay extends AbstractWidget {
     protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {}
 
     public void tick() {
-        DUMMY_PLAYER.tick();
-        DUMMY_PLAYER.tickCount++;
+        dummyPlayer.tick();
+        dummyPlayer.tickCount++;
+
+        particles.removeIf(Particle::isExpired);
+        if (dummyPlayer.tickCount % 14 != 0) return;
+        particles.add(new Particle(new Vector2f(
+                getX() - 100f + RandomUtils.nextFloat(0f, 200f),
+                getY() + RandomUtils.nextFloat(10f, 100))));
     }
 
     private static void renderEntity(GuiGraphics graphics, int x, int y, int scale, float mouseX, float mouseY, LivingEntity entity) {
@@ -125,7 +142,7 @@ public class DummyDisplay extends AbstractWidget {
     static {
         final var player = Objects.requireNonNull(Minecraft.getInstance().player);
         final var level = Objects.requireNonNull(Minecraft.getInstance().level);
-        DUMMY_PLAYER = new AbstractClientPlayer(level, player.connection.getLocalGameProfile()) {
+        dummyPlayer = new AbstractClientPlayer(level, player.connection.getLocalGameProfile()) {
 
             @Override
             public boolean isModelPartShown(PlayerModelPart part) {
@@ -133,5 +150,35 @@ public class DummyDisplay extends AbstractWidget {
                 return player.isModelPartShown(part);
             }
         };
+    }
+
+    private static class Particle {
+
+        private final long startTime = Util.getMillis();
+        private final Vector2f start;
+        private final Vector2f end;
+
+        public Particle(Vector2f start) {
+            this.start = start;
+            this.end = new Vector2f(start.x, start.y - 250);
+        }
+
+        public void render(GuiGraphics graphics) {
+            final var delta = (Util.getMillis() - startTime) / 3000f;
+            final var color = ArchoPalette.WHITE.lerp(ArchoPalette.ACCENT, delta);
+            final var scale = Easing.EASE_OUT_CUBIC.compute(1f - delta);
+            final var offset = 30f * Math.cos(start.y + delta * 2f);
+            graphics.pose().pushPose();
+            graphics.pose().translate(
+                    Mth.lerp(delta, start.x, end.x) + offset,
+                    Mth.lerp(delta, start.y, end.y), 0);
+            graphics.pose().scale(scale, scale, 1f);
+            graphics.fill(-1, -1, 1, 1, color.decimal());
+            graphics.pose().popPose();
+        }
+
+        public boolean isExpired() {
+            return Util.getMillis() - startTime > 3000;
+        }
     }
 }

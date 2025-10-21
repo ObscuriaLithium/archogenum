@@ -17,7 +17,7 @@ public interface ArchoCreativeTabs {
     Deferred<CreativeModeTab, CreativeModeTab> ARCHOGENUM = create("archogenum", () -> CreativeModeTab
             .builder(CreativeModeTab.Row.TOP, 1)
             .title(Component.translatable("itemGroup.archogenum"))
-            .icon(ArchoItems.GENE_PACK::instantiate)
+            .icon(ArchoItems.XENOFRUIT::instantiate)
             .displayItems(ArchoCreativeTabs::buildItems)
             .build());
 
@@ -30,7 +30,7 @@ public interface ArchoCreativeTabs {
         output.accept(ArchoItems.XENOFRUIT);
         output.accept(ArchoItems.MUSIC_DISC);
         params.holders().lookupOrThrow(ArchoRegistries.Keys.GENE).listElements().forEach(gene -> {
-            final var stack = ArchoItems.GENE_PACK.instantiate();
+            final var stack = ArchoItems.ECHO_VESSEL.instantiate();
             final var storedGenes = new StoredGenes(List.of(new GeneInstance(gene, 1)));
             EchoVesselItem.setStoredGenes(stack, storedGenes);
             output.accept(stack);

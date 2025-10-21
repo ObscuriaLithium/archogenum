@@ -1,0 +1,9 @@
+{
+  "entities": [
+    "minecraft:zombie",
+    "minecraft:skeleton"
+  ],
+  "genes": [
+    "archogenum:photosensitive"
+  ]
+}

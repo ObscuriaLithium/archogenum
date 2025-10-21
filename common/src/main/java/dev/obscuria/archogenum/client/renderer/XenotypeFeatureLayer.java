@@ -1,7 +1,7 @@
 package dev.obscuria.archogenum.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import dev.obscuria.archogenum.world.genetics.behavior.CosmeticTrait;
+import dev.obscuria.archogenum.world.genetics.trait.CosmeticTrait;
 import dev.obscuria.archogenum.world.genetics.resource.XenotypeHandler;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.MultiBufferSource;

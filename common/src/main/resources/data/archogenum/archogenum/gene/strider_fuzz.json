@@ -2,9 +2,9 @@
   "category": "cosmetic",
   "texture": "archogenum:textures/gui/gene/strider.png",
   "group": "strider",
-  "color": "#90ddff",
-  "max_expression": 3,
-  "metabolic_efficiency": 2,
+  "color": "#ff2020",
+  "max_expression": 1,
+  "metabolic_efficiency": 1,
   "complexity": 1,
   "cost": [
     {

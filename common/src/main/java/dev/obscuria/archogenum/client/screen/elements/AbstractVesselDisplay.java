@@ -22,7 +22,7 @@ public abstract class AbstractVesselDisplay extends HierarchicalNode {
 
     public AbstractVesselDisplay(IBundleLike bundle) {
         super(0, 0, 0, 26, CommonComponents.EMPTY);
-        this.stack = ArchoItems.GENE_PACK.instantiate();
+        this.stack = ArchoItems.ECHO_VESSEL.instantiate();
         this.bundle = bundle;
         EchoVesselItem.setStoredGenes(stack, new StoredGenes(bundle.genes()));
     }

@@ -12,8 +12,7 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 public interface ArchoAttributes {
 
     DeferredAttribute HUNGER_RATE = percent("player.hunger_rate", 1.0, 0.0, 1024.0);
-    DeferredAttribute RESPIRATION_EFFICIENCY = percent("generic.respiration_efficiency", 1.0, 0.0, 1024.0);
-    DeferredAttribute FALL_DAMAGE = percent("generic.fall_damage", 1.0, 0.0, 1024.0);
+    DeferredAttribute RESPIRATION_EFFICIENCY = ranged("generic.respiration_efficiency", 1.0, 0.0, 1024.0);
 
     TagKey<Attribute> INVERSE = TagKey.create(Registries.ATTRIBUTE, Archogenum.key("inverse"));
 
@@ -22,7 +21,6 @@ public interface ArchoAttributes {
     }
 
     static void createLivingAttributes(AttributeSupplier.Builder builder) {
-        builder.add(FALL_DAMAGE.get());
         builder.add(RESPIRATION_EFFICIENCY.get());
     }
 

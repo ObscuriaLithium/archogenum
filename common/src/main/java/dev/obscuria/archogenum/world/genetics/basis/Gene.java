@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.obscuria.archogenum.ArchogenumProxy;
 import dev.obscuria.archogenum.registry.ArchoRegistries;
-import dev.obscuria.archogenum.world.genetics.behavior.ITrait;
+import dev.obscuria.archogenum.world.genetics.trait.ITrait;
 import dev.obscuria.fragmentum.network.PayloadCodec;
 import dev.obscuria.fragmentum.registry.LazyHolder;
 import dev.obscuria.fragmentum.util.color.RGB;

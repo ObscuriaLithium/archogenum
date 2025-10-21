@@ -1,8 +1,10 @@
 package dev.obscuria.archogenum.client.screen.nodes;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import dev.obscuria.archogenum.client.screen.ArchoTextures;
 import dev.obscuria.archogenum.client.screen.GuiUtil;
 import dev.obscuria.archogenum.client.screen.tool.GlobalTransform;
+import dev.obscuria.archogenum.client.screen.tool.Texture;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
@@ -17,8 +19,12 @@ public class ButtonNode extends HierarchicalNode {
         return getMessage();
     }
 
+    public Texture pickTexture(boolean isHovered) {
+        return ArchoTextures.buttonGray(isHovered);
+    }
+
     public void renderButton(GuiGraphics graphics, GlobalTransform transform, int mouseX, int mouseY) {
-        GuiUtil.drawShifted(graphics, ArchoTextures.buttonGray(isHovered), this);
+        GuiUtil.drawShifted(graphics, pickTexture(active && isHovered), this);
     }
 
     @Override
@@ -26,8 +32,18 @@ public class ButtonNode extends HierarchicalNode {
         if (!transform.isWithinScissor()) return;
         this.isHovered = transform.isMouseOver(mouseX, mouseY);
         final var font = Minecraft.getInstance().font;
-        this.renderButton(graphics, transform, mouseX, mouseY);
-        graphics.drawCenteredString(font, getButtonName(), (int) rect.centerX(), rect.y() + 3, -0x1);
+
+        if (active) {
+            this.renderButton(graphics, transform, mouseX, mouseY);
+            graphics.drawCenteredString(font, getButtonName(), (int) rect.centerX(), rect.y() + 3, -0x1);
+        } else {
+            RenderSystem.enableBlend();
+            RenderSystem.setShaderColor(1f, 1f, 1f, 0.33f);
+            this.renderButton(graphics, transform, mouseX, mouseY);
+            graphics.drawCenteredString(font, getButtonName(), (int) rect.centerX(), rect.y() + 3, -0x1);
+            RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
+            RenderSystem.disableBlend();
+        }
     }
 
     @Override

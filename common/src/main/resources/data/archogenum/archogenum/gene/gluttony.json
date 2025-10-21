@@ -2,10 +2,10 @@
   "category": "harmful",
   "texture": "archogenum:textures/gui/gene/piglin.png",
   "group": "pig",
-  "color": "#90ddff",
-  "max_expression": 3,
+  "color": "#ff6320",
+  "max_expression": 1,
   "metabolic_efficiency": -2,
-  "complexity": 1,
+  "complexity": 2,
   "cost": [],
   "traits": [
     "archogenum:effects/gluttony"

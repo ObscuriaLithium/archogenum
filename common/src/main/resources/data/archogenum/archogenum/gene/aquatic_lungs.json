@@ -2,10 +2,10 @@
   "category": "beneficial",
   "texture": "archogenum:textures/gui/gene/squid.png",
   "group": "squid",
-  "color": "#ff20ff",
-  "max_expression": 3,
-  "metabolic_efficiency": 2,
-  "complexity": 1,
+  "color": "#209bff",
+  "max_expression": 1,
+  "metabolic_efficiency": -2,
+  "complexity": 2,
   "cost": [
     {
       "item": "minecraft:nautilus_shell",

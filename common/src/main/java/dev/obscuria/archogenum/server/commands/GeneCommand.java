@@ -111,7 +111,7 @@ public final class GeneCommand {
     }
 
     private static int giveGene(CommandSourceStack source, ServerPlayer player, Holder<Gene> gene) {
-        final var stack = ArchoItems.GENE_PACK.instantiate();
+        final var stack = ArchoItems.ECHO_VESSEL.instantiate();
         final var storedGenes = new StoredGenes(List.of(new GeneInstance(gene, 1)));
         EchoVesselItem.setStoredGenes(stack, storedGenes);
         if (!player.addItem(stack)) {

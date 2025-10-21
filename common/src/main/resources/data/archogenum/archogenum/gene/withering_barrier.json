@@ -2,11 +2,11 @@
   "category": "beneficial",
   "texture": "archogenum:textures/gui/gene/wither.png",
   "group": "wither",
-  "color": "#90ddff",
+  "color": "#ff207d",
   "is_archogene": true,
-  "max_expression": 3,
-  "metabolic_efficiency": -2,
-  "complexity": 2,
+  "max_expression": 1,
+  "metabolic_efficiency": -6,
+  "complexity": 6,
   "cost": [
     {
       "item": "minecraft:wither_rose",

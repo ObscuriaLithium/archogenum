@@ -3,10 +3,11 @@ package dev.obscuria.archogenum.world.genetics.resource;
 import dev.obscuria.archogenum.Archogenum;
 import dev.obscuria.archogenum.world.enchantment.EchoGraspEnchantment;
 import dev.obscuria.archogenum.world.genetics.Xenotype;
-import dev.obscuria.archogenum.world.genetics.behavior.LootDropper;
+import dev.obscuria.archogenum.world.genetics.trait.LootDropper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.loot.LootParams;
 
 public interface XenotypeHandler {
@@ -28,9 +29,23 @@ public interface XenotypeHandler {
         entity.level().getProfiler().pop();
     }
 
+    static float modifyHurtAmount(LivingEntity entity, DamageSource source, float amount) {
+        final var exposure = getXenotype(entity).exposureTo(source);
+        if (exposure == 0.0) return amount;
+        return Math.max(0f, amount + amount * (float) exposure);
+    }
+
     static void dropLoot(LivingEntity entity, DamageSource source, LootParams params, Long seed, LootDropper dropper) {
         EchoGraspEnchantment.maybeDropVessel(entity, source, dropper);
         getXenotype(entity).dropLoot(entity, params, seed, dropper);
+    }
+
+    static boolean isInvulnerableTo(LivingEntity entity, DamageSource source) {
+        return getXenotype(entity).isInvulnerableTo(entity, source);
+    }
+
+    static boolean canStandOnFluid(LivingEntity entity, FluidState state) {
+        return getXenotype(entity).canStandOnFluid(entity, state);
     }
 
     static void save(LivingEntity entity, CompoundTag compound) {

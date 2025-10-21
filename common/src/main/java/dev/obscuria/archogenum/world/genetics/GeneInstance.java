@@ -3,15 +3,18 @@ package dev.obscuria.archogenum.world.genetics;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.obscuria.archogenum.world.genetics.basis.Gene;
-import dev.obscuria.archogenum.world.genetics.behavior.ITrait;
-import dev.obscuria.archogenum.world.genetics.behavior.LootDropper;
+import dev.obscuria.archogenum.world.genetics.trait.ITrait;
+import dev.obscuria.archogenum.world.genetics.trait.LootDropper;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.loot.LootParams;
 
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public record GeneInstance(
         Holder<Gene> gene,
@@ -43,11 +46,37 @@ public record GeneInstance(
         forEachTrait(trait -> trait.dropLoot(entity, params, seed, dropper));
     }
 
+    public double exposureTo(DamageSource source) {
+        if (gene.value().traits().isEmpty()) return 0.0;
+        var result = 0.0;
+        for (var behavior : gene.value().traits().get()) {
+            result += behavior.getOrThrow().value().exposureTo(source);
+        }
+        return result;
+    }
+
+    public boolean isInvulnerableTo(LivingEntity entity, DamageSource source) {
+        return anyTraitMatch(trait -> trait.isInvulnerableTo(source));
+    }
+
+    public boolean canStandOnFluid(LivingEntity entity, FluidState state) {
+        return anyTraitMatch(trait -> trait.canStandOnFluid(state));
+    }
+
     private void forEachTrait(Consumer<ITrait> consumer) {
         if (gene.value().traits().isEmpty()) return;
         for (var behavior : gene.value().traits().get()) {
             consumer.accept(behavior.getOrThrow().value());
         }
+    }
+
+    private boolean anyTraitMatch(Predicate<ITrait> predicate) {
+        if (gene.value().traits().isEmpty()) return false;
+        for (var behavior : gene.value().traits().get()) {
+            if (!predicate.test(behavior.getOrThrow().value())) continue;
+            return true;
+        }
+        return false;
     }
 
     static {

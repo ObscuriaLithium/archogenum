@@ -1,0 +1,10 @@
+{
+  "type": "archogenum:damage_exposure",
+  "entries": [
+    {
+      "type": "resistance",
+      "damage_type": "minecraft:fall",
+      "amount": 0.2
+    }
+  ]
+}

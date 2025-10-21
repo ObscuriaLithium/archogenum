@@ -2,9 +2,9 @@
   "category": "harmful",
   "texture": "archogenum:textures/gui/gene/squid.png",
   "group": "squid",
-  "color": "#90ddff",
-  "max_expression": 3,
-  "metabolic_efficiency": 2,
+  "color": "#209bff",
+  "max_expression": 1,
+  "metabolic_efficiency": 1,
   "complexity": 1,
   "cost": [
     {
@@ -13,6 +13,7 @@
     }
   ],
   "traits": [
-    "archogenum:modifiers/soft_body"
+    "archogenum:modifiers/soft_body",
+    "archogenum:exposure/soft_body"
   ]
 }

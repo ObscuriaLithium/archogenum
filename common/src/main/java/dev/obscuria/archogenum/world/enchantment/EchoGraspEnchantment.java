@@ -5,7 +5,7 @@ import dev.obscuria.archogenum.registry.ArchoItems;
 import dev.obscuria.archogenum.world.genetics.GeneInstance;
 import dev.obscuria.archogenum.world.genetics.StoredGenes;
 import dev.obscuria.archogenum.world.genetics.basis.Genome;
-import dev.obscuria.archogenum.world.genetics.behavior.LootDropper;
+import dev.obscuria.archogenum.world.genetics.trait.LootDropper;
 import dev.obscuria.archogenum.world.item.EchoVesselItem;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -70,7 +70,7 @@ public final class EchoGraspEnchantment extends Enchantment {
     }
 
     private static void dropVessel(Genome genome, LootDropper dropper) {
-        final var vessel = ArchoItems.GENE_PACK.instantiate();
+        final var vessel = ArchoItems.ECHO_VESSEL.instantiate();
         final var genes = genome.unwrapGenes().map(it -> new GeneInstance(it, 1)).toList();
         EchoVesselItem.setStoredGenes(vessel, new StoredGenes(genes));
         dropper.drop(vessel);

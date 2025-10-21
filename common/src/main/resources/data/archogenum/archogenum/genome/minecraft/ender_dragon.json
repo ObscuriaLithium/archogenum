@@ -1,0 +1,9 @@
+{
+  "entities": [
+    "minecraft:ender_dragon"
+  ],
+  "genes": [
+    "archogenum:deathless_echo",
+    "archogenum:hydrosensitive"
+  ]
+}

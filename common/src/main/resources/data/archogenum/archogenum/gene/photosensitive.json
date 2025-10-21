@@ -2,10 +2,10 @@
   "category": "harmful",
   "texture": "archogenum:textures/gui/gene/zombie.png",
   "group": "zombie",
-  "color": "#90ddff",
+  "color": "#20ff88",
   "max_expression": 1,
   "metabolic_efficiency": 6,
-  "complexity": 1,
+  "complexity": 2,
   "cost": [
     {
       "item": "minecraft:bone",

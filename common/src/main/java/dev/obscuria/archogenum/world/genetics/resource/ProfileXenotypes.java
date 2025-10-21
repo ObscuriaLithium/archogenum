@@ -22,6 +22,10 @@ public record ProfileXenotypes(
         return new ProfileXenotypes(new ArrayList<>(xenotypes), new Signal0());
     }
 
+    public boolean contains(Xenotype xenotype) {
+        return xenotypes.contains(xenotype);
+    }
+
     public boolean add(Xenotype xenotype) {
         if (xenotype.isEmpty() || xenotypes.contains(xenotype)) return false;
         xenotypes.add(xenotype);

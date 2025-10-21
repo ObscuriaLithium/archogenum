@@ -17,8 +17,6 @@
   "item.archogenum.music_disc.desc": "The Living Code",
 
   "attribute.archogenum.player.hunger_rate": "Hunger Rate",
-  "attribute.archogenum.generic.fall_damage": "Fall Damage",
-  "attribute.archogenum.generic.projectile_vulnerability": "Projectile Vulnerability",
   "attribute.archogenum.generic.respiration_efficiency": "Respiration Efficiency",
 
   "enchantment.archogenum.echo_grasp": "Echo Grasp",
@@ -77,6 +75,10 @@
   "gene.archogenum.regeneration_nullifier.desc": "A corrosive field neutralizes restorative magics: Regeneration effects applied to the host are immediately cancelled.",
   "gene.archogenum.deathless_echo": "Deathless Echo",
   "gene.archogenum.deathless_echo.desc": "The host's essence resonates beyond mortal boundaries. Upon death, their knowledge and worldly possessions remain anchored to the living realm, slipping past the grasp of oblivion.",
+  "gene.archogenum.lava_stride": "Lava Stride",
+  "gene.archogenum.lava_stride.desc": "The host's feet secrete a dense, heat-repellent membrane that solidifies lava beneath each step. Though the effect fades quickly, it allows brief, effortless traversal across molten terrain.",
+  "gene.archogenum.pyrophobic_veins": "Pyrophobic Veins",
+  "gene.archogenum.pyrophobic_veins.desc": "The host's vascular system reacts violently to heat. Exposure to fire or lava causes intense internal stress, greatly increasing burn damage.",
 
   "gene.instance_name_format": "%1$s %2$s",
 
@@ -86,6 +88,8 @@
   "gene.expression.4": "IV",
   "gene.expression.5": "V",
 
+  "trait.archogenum.drops/feather_growth": "Feather Drops",
+  "trait.archogenum.drops/ink_sac": "Ink Sac Drops",
   "trait.archogenum.cosmetic/pig_snout": "Pig Snout",
   "trait.archogenum.cosmetic/chicken_beak": "Chicken Beak",
   "trait.archogenum.cosmetic/strider_fuzz": "Strider Fuzz",
@@ -93,10 +97,18 @@
   "trait.archogenum.cosmetic/power_aura": "Power Aura",
   "trait.archogenum.cosmetic/vex_wings": "Vex Wings",
   "trait.archogenum.cosmetic/warden_tendrils": "Warden Tendrils",
-  "trait.archogenum.drops/feather_growth": "Drop Feathers",
   "trait.archogenum.water_intolerance": "Water Intolerance",
   "trait.archogenum.sunlight_intolerance": "Sunlight Intolerance",
   "trait.archogenum.keep_inventory": "Keep Inventory",
+  "trait.archogenum.lava_walking": "Lava Walking",
+  "trait.archogenum.lava_immunity": "Lava Immunity",
+
+  "exposure.resistance": "%1$s %2$s Resistance",
+  "exposure.vulnerability": "%1$s %2$s Vulnerability",
+
+  "damage_type.minecraft.fall": "Fall",
+  "damage_type.minecraft.fire": "Fire",
+  "damage_type.minecraft.wither": "Wither",
 
   "screen.archogenum.genes.details_placeholder": "Genes are the fundamental building blocks of xenotypes, defining a creature's abilities, resistances, and weaknesses.",
   "screen.archogenum.genes.archogene_desc": "This is an ancient and rare gene. Synthesizing a xenofruit with it requires an enchanted golden apple instead of a regular one.",

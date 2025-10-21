@@ -6,8 +6,8 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.obscuria.archogenum.ArchogenumProxy;
 import dev.obscuria.archogenum.world.genetics.basis.Gene;
 import dev.obscuria.archogenum.world.genetics.basis.IBundleLike;
-import dev.obscuria.archogenum.world.genetics.behavior.CustomTagTrait;
-import dev.obscuria.archogenum.world.genetics.behavior.LootDropper;
+import dev.obscuria.archogenum.world.genetics.trait.CustomTagTrait;
+import dev.obscuria.archogenum.world.genetics.trait.LootDropper;
 import dev.obscuria.archogenum.world.genetics.resource.GeneBundle;
 import dev.obscuria.fragmentum.network.PayloadCodec;
 import net.minecraft.core.Holder;
@@ -16,7 +16,9 @@ import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
@@ -33,6 +35,10 @@ public record Xenotype(
     public static final String TAG_NAME = "Xenotype";
     public static final Codec<Xenotype> CODEC;
     public static final PayloadCodec<Xenotype> NETWORK_CODEC;
+
+    public int complexity() {
+        return genes.stream().mapToInt(it -> it.gene().value().complexity()).sum();
+    }
 
     public boolean isEmpty() {
         return genes.isEmpty();
@@ -78,6 +84,30 @@ public record Xenotype(
         for (var gene : genes) {
             gene.dropLoot(entity, params, seed, dropper);
         }
+    }
+
+    public double exposureTo(DamageSource source) {
+        var result = 0.0;
+        for (var gene : genes) {
+            result += gene.exposureTo(source);
+        }
+        return result;
+    }
+
+    public boolean isInvulnerableTo(LivingEntity entity, DamageSource source) {
+        for (var gene : genes) {
+            if (!gene.isInvulnerableTo(entity, source)) continue;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean canStandOnFluid(LivingEntity entity, FluidState state) {
+        for (var gene : genes) {
+            if (!gene.canStandOnFluid(entity, state)) continue;
+            return true;
+        }
+        return false;
     }
 
     public boolean hasArchogene() {

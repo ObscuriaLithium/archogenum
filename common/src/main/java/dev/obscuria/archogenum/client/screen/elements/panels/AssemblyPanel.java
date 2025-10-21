@@ -1,16 +1,21 @@
 package dev.obscuria.archogenum.client.screen.elements.panels;
 
+import dev.obscuria.archogenum.client.ClientGeneticProfile;
 import dev.obscuria.archogenum.client.screen.ArchoScreen;
+import dev.obscuria.archogenum.client.screen.ArchoTextures;
 import dev.obscuria.archogenum.client.screen.containers.ListContainer;
 import dev.obscuria.archogenum.client.screen.containers.PageContainer;
 import dev.obscuria.archogenum.client.screen.containers.ScrollContainer;
 import dev.obscuria.archogenum.client.screen.elements.*;
+import dev.obscuria.archogenum.client.screen.elements.details.AssemblyResultDetails;
+import dev.obscuria.archogenum.client.screen.elements.details.PropertyDetails;
 import dev.obscuria.archogenum.client.screen.elements.details.SynthesisCostDetails;
 import dev.obscuria.archogenum.client.screen.elements.details.TraitsDetails;
 import dev.obscuria.archogenum.client.screen.nodes.ButtonNode;
 import dev.obscuria.archogenum.client.screen.nodes.HeaderNode;
 import dev.obscuria.archogenum.client.screen.pages.AssemblyPage;
 import dev.obscuria.archogenum.client.screen.tool.ClickAction;
+import dev.obscuria.archogenum.client.screen.tool.Texture;
 import dev.obscuria.archogenum.network.ServerboundSaveXenotypePayload;
 import dev.obscuria.archogenum.world.genetics.Xenotype;
 import dev.obscuria.archogenum.world.genetics.basis.IBundleLike;
@@ -24,7 +29,9 @@ public class AssemblyPanel extends PageContainer {
     private final ListContainer graph;
     private final ListContainer bundles;
     private final ListContainer details;
-    private final ButtonNode saveButton;
+    private final ListContainer footer;
+    private final ListContainer result;
+    private final CreateButton createButton;
 
     public AssemblyPanel(int x, int y, int width, int height) {
         super(x, y, width, height);
@@ -43,9 +50,13 @@ public class AssemblyPanel extends PageContainer {
         scroll.addChild(content);
         this.setBody(scroll);
 
-        saveButton = new ButtonNode(Component.literal("Save"));
-        saveButton.clickAction = ClickAction.leftClick(this::save);
-        this.setFooter(saveButton);
+        footer = new ListContainer();
+        result = new ListContainer();
+        createButton = new CreateButton();
+        createButton.clickAction = ClickAction.leftClick(this::save);
+        footer.addChild(result);
+        footer.addChild(createButton);
+        this.setFooter(footer);
 
         AssemblyPage.bundleAdded.connect(this, false, ArchoScreen.breaker, this::onBundleAdded);
         AssemblyPage.bundleRemoved.connect(this, false, ArchoScreen.breaker, this::onBundleRemoved);
@@ -76,20 +87,58 @@ public class AssemblyPanel extends PageContainer {
                 .toList());
     }
 
-    private void save(ButtonNode button) {
+    private void save(CreateButton button) {
+        if (button.inCollection) return;
         final var xenotype = assemble();
         if (xenotype.isEmpty()) return;
         FragmentumNetworking.sendToServer(new ServerboundSaveXenotypePayload(xenotype));
+        button.forceInCollection();
     }
 
     private void update() {
+
         this.graph.clearChildren();
         this.details.clearChildren();
+        this.result.clearChildren();
+
         final var xenotype = assemble();
         DummyDisplay.xenotype = xenotype;
+        createButton.update(xenotype);
         if (xenotype.isEmpty()) return;
+
         this.graph.addChild(new GraphNode(xenotype));
         this.details.addChild(SynthesisCostDetails.ofXenotype(xenotype));
         this.details.addChild(new TraitsDetails(xenotype));
+        this.details.addChild(new PropertyDetails(xenotype));
+        this.result.addChild(new AssemblyResultDetails(xenotype));
+    }
+
+    private static class CreateButton extends ButtonNode {
+
+        private boolean inCollection;
+
+        public CreateButton() {
+            super(Component.literal("Create"));
+        }
+
+        public void update(Xenotype xenotype) {
+            this.inCollection = ClientGeneticProfile.INSTANCE.xenotypes().contains(xenotype);
+            this.active = !xenotype.isEmpty() && xenotype.complexity() <= 16;
+            setMessage(inCollection
+                    ? Component.literal("In Collection")
+                    : Component.literal("Create"));
+        }
+
+        public void forceInCollection() {
+            this.inCollection = true;
+            setMessage(Component.literal("In Collection"));
+        }
+
+        @Override
+        public Texture pickTexture(boolean isHovered) {
+            return inCollection
+                    ? ArchoTextures.buttonGreen(isHovered)
+                    : ArchoTextures.buttonGray(isHovered);
+        }
     }
 }

@@ -2,10 +2,10 @@
   "category": "harmful",
   "texture": "archogenum:textures/gui/gene/ender.png",
   "group": "ender",
-  "color": "#90ddff",
+  "color": "#9720ff",
   "max_expression": 1,
   "metabolic_efficiency": 6,
-  "complexity": 1,
+  "complexity": 2,
   "cost": [
     {
       "item": "minecraft:ender_pearl",

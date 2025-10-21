@@ -1,13 +1,12 @@
 package dev.obscuria.archogenum.client.screen.elements;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import dev.obscuria.archogenum.client.screen.ArchoTextures;
 import dev.obscuria.archogenum.client.screen.GuiUtil;
 import dev.obscuria.archogenum.client.screen.nodes.HierarchicalNode;
 import dev.obscuria.archogenum.client.screen.tool.GlobalTransform;
 import dev.obscuria.archogenum.world.genetics.basis.GeneCategory;
 import dev.obscuria.archogenum.world.genetics.basis.IBundleLike;
-import dev.obscuria.archogenum.world.genetics.behavior.TraitComponent;
+import dev.obscuria.archogenum.world.genetics.trait.TraitComponent;
 import dev.obscuria.fragmentum.util.color.ARGB;
 import dev.obscuria.fragmentum.util.color.Colors;
 import dev.obscuria.fragmentum.util.color.RGB;
@@ -161,8 +160,8 @@ public class GraphNode extends HierarchicalNode {
             }
         }
         if (beneficial > 0) result.add(new Entry(beneficial, Colors.rgbOf(ChatFormatting.GREEN.getColor())));
-        if (harmful > 0) result.add(new Entry(harmful, Colors.rgbOf(ChatFormatting.RED.getColor())));
         if (cosmetic > 0) result.add(new Entry(cosmetic, Colors.rgbOf(ChatFormatting.LIGHT_PURPLE.getColor())));
+        if (harmful > 0) result.add(new Entry(harmful, Colors.rgbOf(ChatFormatting.RED.getColor())));
         return result;
     }
 

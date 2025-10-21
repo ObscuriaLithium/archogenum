@@ -1,7 +1,6 @@
 package dev.obscuria.archogenum.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.obscuria.archogenum.event.Hooks;
 import dev.obscuria.archogenum.registry.ArchoAttributes;
 import dev.obscuria.archogenum.world.genetics.Xenotype;
 import dev.obscuria.archogenum.world.genetics.XenotypeSerializer;
@@ -16,12 +15,14 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -60,10 +61,27 @@ public abstract class MixinLivingEntity extends Entity implements ILivingExtensi
         XenotypeHandler.tick(self);
     }
 
+    @ModifyVariable(method = "hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At(
+            value = "FIELD",
+            target = "Lnet/minecraft/world/entity/LivingEntity;noActionTime:I"),
+            index = 2, argsOnly = true)
+    private float modifyHurtAmount(float amount, @Local(argsOnly = true) DamageSource source) {
+        final var self = (LivingEntity) (Object) this;
+        return XenotypeHandler.modifyHurtAmount(self, source, amount);
+    }
+
     @Inject(method = "dropFromLootTable", at = @At("TAIL"))
     private void onLootDrop(DamageSource source, boolean hitByPlayer, CallbackInfo info, @Local LootParams params) {
         final var self = (LivingEntity) (Object) this;
         XenotypeHandler.dropLoot(self, source, params, this.getLootTableSeed(), this::spawnAtLocation);
+    }
+
+    @Inject(method = "canStandOnFluid", at = @At("RETURN"), cancellable = true)
+    private void modifyCanStandOnFluid(FluidState state, CallbackInfoReturnable<Boolean> info) {
+        if (info.getReturnValue()) return;
+        final var self = (LivingEntity) (Object) this;
+        if (!XenotypeHandler.canStandOnFluid(self, state)) return;
+        info.setReturnValue(true);
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
@@ -76,12 +94,6 @@ public abstract class MixinLivingEntity extends Entity implements ILivingExtensi
     private void onLoad(CompoundTag compound, CallbackInfo info) {
         final var self = (LivingEntity) (Object) this;
         XenotypeHandler.load(self, compound);
-    }
-
-    @Inject(method = "calculateFallDamage", at = @At("RETURN"), cancellable = true)
-    private void modifyFallDamage(float fallDistance, float multiplier, CallbackInfoReturnable<Integer> info) {
-        final var entity = (LivingEntity) (Object) this;
-        info.setReturnValue(Hooks.modifyFallDamage(entity, info.getReturnValue()));
     }
 
     @Inject(method = "createLivingAttributes", at = @At("RETURN"))

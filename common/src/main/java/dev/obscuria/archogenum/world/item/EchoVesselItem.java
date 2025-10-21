@@ -6,6 +6,7 @@ import dev.obscuria.archogenum.network.ClientboundNewVesselPayload;
 import dev.obscuria.archogenum.server.ServerGenetics;
 import dev.obscuria.archogenum.world.genetics.StoredGenes;
 import dev.obscuria.fragmentum.network.FragmentumNetworking;
+import dev.obscuria.fragmentum.util.color.Colors;
 import dev.obscuria.fragmentum.world.tooltip.TooltipOptions;
 import dev.obscuria.fragmentum.world.tooltip.Tooltips;
 import net.minecraft.nbt.NbtOps;
@@ -49,8 +50,18 @@ public class EchoVesselItem extends Item {
     public static int getOverlayColor(ItemStack stack, int layer) {
         if (layer != 1) return -1;
         final var storedGenes = getStoredGenes(stack);
-        if (storedGenes.isEmpty()) return -1;
-        return storedGenes.genes().get(0).gene().value().color().decimal();
+        if (storedGenes.isEmpty()) return 0xffffff;
+        var red = 0f;
+        var green = 0f;
+        var blue = 0f;
+        for (var gene : storedGenes.genes()) {
+            final var color = gene.gene().value().color();
+            red += color.red();
+            green += color.green();
+            blue += color.blue();
+        }
+        final var total = storedGenes.genes().size();
+        return Colors.rgbOf(red / total, green / total, blue / total).decimal();
     }
 
     @Override

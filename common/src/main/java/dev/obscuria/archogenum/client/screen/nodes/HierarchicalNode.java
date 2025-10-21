@@ -71,7 +71,8 @@ public abstract class HierarchicalNode extends AbstractWidget {
 
     public boolean mouseClicked(GlobalTransform transform, double mouseX, double mouseY, int button) {
         if (!rect.visible()) return false;
-        if (mouseFilter != MouseFilter.IGNORE
+        if (active
+                && mouseFilter != MouseFilter.IGNORE
                 && clickAction != null
                 && clickAction.mouseClicked(this, transform, mouseX, mouseY, button)) {
             playClickSound();

@@ -5,10 +5,12 @@ import dev.obscuria.archogenum.client.screen.ArchoTextures;
 import dev.obscuria.archogenum.client.screen.GuiUtil;
 import dev.obscuria.archogenum.client.screen.nodes.HierarchicalNode;
 import dev.obscuria.archogenum.client.screen.tool.GlobalTransform;
+import dev.obscuria.archogenum.world.genetics.Xenotype;
 import dev.obscuria.archogenum.world.genetics.basis.Gene;
 import dev.obscuria.archogenum.world.genetics.basis.IBundleLike;
 import dev.obscuria.fragmentum.util.color.ARGB;
 import dev.obscuria.fragmentum.util.color.Colors;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.Holder;
@@ -36,6 +38,27 @@ public class PropertyDetails extends AbstractDetails {
         final var metabolicEfficiency = bundle.genes().stream().mapToInt(it -> it.gene().value().metabolicEfficiency()).sum();
         this.addChild(new Entry(flag, literal("Complexity"), literal(String.valueOf(complexity))));
         this.addChild(new Entry(flag, literal("Metabolic Efficiency"), literal(String.valueOf(metabolicEfficiency))));
+    }
+
+    public PropertyDetails(Xenotype xenotype) {
+        super(Component.literal("Properties"));
+        final var flag = new AtomicBoolean(true);
+        final var complexity = xenotype.genes().stream().mapToInt(it -> it.gene().value().complexity()).sum();
+        final var metabolicEfficiency = xenotype.genes().stream().mapToInt(it -> it.gene().value().metabolicEfficiency()).sum();
+        final var complexityColor = complexity < 16 ? ChatFormatting.GREEN
+                : complexity > 16 ? ChatFormatting.RED
+                : ChatFormatting.WHITE;
+        this.addChild(new Entry(flag, literal("Complexity"), Component.empty()
+                .append(literal(String.valueOf(complexity)).withStyle(complexityColor))
+                .append(literal("/16"))));
+        this.addChild(new Entry(flag, literal("Metabolic Efficiency"), literal(String.valueOf(metabolicEfficiency))));
+        if (metabolicEfficiency != 0) {
+            final var modifier = metabolicEfficiency < 0 ? -25 * metabolicEfficiency : 10 * metabolicEfficiency;
+            final var value = Component
+                    .literal((metabolicEfficiency > 0 ? "-" : "+") + modifier + "%")
+                    .withStyle(metabolicEfficiency > 0 ? ChatFormatting.GREEN : ChatFormatting.RED);
+            this.addChild(new Entry(flag, literal("Hunger Rate"), value));
+        }
     }
 
     private static class Entry extends HierarchicalNode {

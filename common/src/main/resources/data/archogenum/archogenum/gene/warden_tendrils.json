@@ -2,9 +2,9 @@
   "category": "cosmetic",
   "texture": "archogenum:textures/gui/gene/warden.png",
   "group": "warden",
-  "color": "#90ddff",
-  "max_expression": 3,
-  "metabolic_efficiency": 2,
+  "color": "#20deff",
+  "max_expression": 1,
+  "metabolic_efficiency": 1,
   "complexity": 1,
   "cost": [
     {

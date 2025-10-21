@@ -12,7 +12,7 @@ public interface ArchogenumClient {
     static void init() {
 
         final var registrar = FragmentumClientRegistry.registrar(Archogenum.MODID);
-        registrar.registerItemColor(EchoVesselItem::getOverlayColor, ArchoItems.GENE_PACK);
+        registrar.registerItemColor(EchoVesselItem::getOverlayColor, ArchoItems.ECHO_VESSEL);
 
         ModelLayers.register(registrar);
         XenotypeFeatureRegistry.register(Archogenum.key("pig_snout"), PigSnoutFeature::new);

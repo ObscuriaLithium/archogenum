@@ -2,11 +2,6 @@
   "type": "archogenum:modifiers",
   "modifiers": [
     {
-      "attribute": "archogenum:generic.fall_damage",
-      "operation": "multiply_base",
-      "amount": -0.2
-    },
-    {
       "attribute": "minecraft:generic.max_health",
       "operation": "addition",
       "amount": -2.0

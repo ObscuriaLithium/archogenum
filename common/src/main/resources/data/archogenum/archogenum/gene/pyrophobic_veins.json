@@ -1,0 +1,18 @@
+{
+  "category": "harmful",
+  "texture": "archogenum:textures/gui/gene/creeper.png",
+  "group": "creeper",
+  "color": "#20ff27",
+  "max_expression": 1,
+  "metabolic_efficiency": 2,
+  "complexity": 1,
+  "cost": [
+    {
+      "item": "minecraft:gunpowder",
+      "count": 6
+    }
+  ],
+  "traits": [
+    "archogenum:exposure/pyrophobic_veins"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "entities": [
+    "minecraft:vex",
+    "minecraft:allay"
+  ],
+  "genes": [
+    "archogenum:vex_wings"
+  ]
+}
