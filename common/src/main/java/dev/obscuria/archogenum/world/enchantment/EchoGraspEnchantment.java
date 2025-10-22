@@ -22,7 +22,13 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public final class EchoGraspEnchantment extends Enchantment {
+
+    private static final double CHANCE_ONE = 0.4;
+    private static final double CHANCE_TWO = 0.4;
 
     public EchoGraspEnchantment(Rarity rarity, EquipmentSlot... slots) {
         super(rarity, EnchantmentCategory.WEAPON, slots);
@@ -63,16 +69,30 @@ public final class EchoGraspEnchantment extends Enchantment {
     }
 
     public static boolean consumeItemIfPresent(Player player, Item item) {
-        if (player.getAbilities().instabuild && player.getInventory().hasAnyMatching(stack -> stack.is(item)))
-            return true;
+        if (player.getAbilities().instabuild && player.getInventory().hasAnyMatching(stack -> stack.is(item))) return true;
         final var removed = player.getInventory().clearOrCountMatchingItems(stack -> stack.is(item), 1, player.inventoryMenu.getCraftSlots());
         return removed > 0;
     }
 
     private static void dropVessel(Genome genome, LootDropper dropper) {
+        final var allGenes = new ArrayList<>(genome.unwrapGenes().toList());
+        if (allGenes.isEmpty()) return;
+
+        final var genesToTake = Math.min(rollGeneCount(), allGenes.size());
+        Collections.shuffle(allGenes);
+        final var selectedGenes = allGenes.subList(0, genesToTake).stream()
+                .map(it -> new GeneInstance(it, 1))
+                .toList();
+
         final var vessel = ArchoItems.ECHO_VESSEL.instantiate();
-        final var genes = genome.unwrapGenes().map(it -> new GeneInstance(it, 1)).toList();
-        EchoVesselItem.setStoredGenes(vessel, new StoredGenes(genes));
+        EchoVesselItem.setStoredGenes(vessel, new StoredGenes(selectedGenes));
         dropper.drop(vessel);
+    }
+
+    private static int rollGeneCount() {
+        double roll = Math.random();
+        if (roll < CHANCE_ONE) return 1;
+        if (roll < CHANCE_ONE + CHANCE_TWO) return 2;
+        return 3;
     }
 }

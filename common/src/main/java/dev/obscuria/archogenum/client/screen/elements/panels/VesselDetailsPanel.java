@@ -5,6 +5,7 @@ import dev.obscuria.archogenum.client.screen.containers.PageContainer;
 import dev.obscuria.archogenum.client.screen.containers.ScrollContainer;
 import dev.obscuria.archogenum.client.screen.elements.DummyDisplay;
 import dev.obscuria.archogenum.client.screen.elements.GraphNode;
+import dev.obscuria.archogenum.client.screen.elements.SpacingNode;
 import dev.obscuria.archogenum.client.screen.elements.details.PropertyDetails;
 import dev.obscuria.archogenum.client.screen.elements.details.SynthesisCostDetails;
 import dev.obscuria.archogenum.client.screen.elements.details.TraitsDetails;
@@ -58,6 +59,7 @@ public class VesselDetailsPanel extends PageContainer {
         DummyDisplay.xenotype = new Xenotype(target.genes());
         this.header.setContent(VESSEL_NAME);
         this.body.addChild(new GraphNode(target));
+        this.body.addChild(new SpacingNode(5));
         this.body.addChild(TextNode.description(VESSEL_DESC));
         this.body.addChild(SynthesisCostDetails.ofBundle(target));
         this.body.addChild(new TraitsDetails(target));

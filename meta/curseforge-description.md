@@ -11,7 +11,7 @@
 
 # <p style="text-align:center">Important Notice</p>
 
-**Archogenum is currently in alpha – many features are incomplete or unstable**. This is my submission for **ModJam 2025**, which I joined late due to difficult personal circumstances as a refugee in Argentina. The mod is uploaded early to pass verification, and I don't recommend using it in survival yet until after the jam, as I'll be actively expanding and polishing its systems.
+**Archogenum is currently in beta – many features are incomplete or unstable**. This is my submission for **ModJam 2025**, which I joined late due to difficult personal circumstances as a refugee in Argentina. The mod is uploaded early to pass verification, and I don't recommend using it in survival yet until after the jam, as I'll be actively expanding and polishing its systems.
 
 Archogenum is planned as part of a larger series of immersive, thematically connected mods alongside **Ars Elixirum** and others, focused on roles like **alchemist**, **gene-engineer**, and **enchanter**, all centered on exploration, experimentation, and self-expression.
 

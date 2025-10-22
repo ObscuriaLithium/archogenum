@@ -35,7 +35,7 @@ public final class RandomVesselCommand {
 
         final var result = new ArrayList<GeneInstance>();
 
-        final var amount = player.getRandom().nextIntBetweenInclusive(2, 4);
+        final var amount = player.getRandom().nextIntBetweenInclusive(2, 3);
         final var lookup = source.registryAccess().lookupOrThrow(ArchoRegistries.Keys.GENE);
         final var elements = new ArrayList<>(lookup.listElements().toList());
 
