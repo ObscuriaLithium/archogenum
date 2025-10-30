@@ -59,11 +59,13 @@ public interface ITrait {
 
     static void bootstrap(BootstrapContext<Codec<? extends ITrait>> context) {
 
+        context.register("script", () -> ScriptTrait.CODEC);
         context.register("behavior", () -> BehaviorTrait.CODEC);
         context.register("extra_drops", () -> ExtraDropsTrait.CODEC);
         context.register("modifiers", () -> ModifierTrait.CODEC);
         context.register("effects", () -> EffectTrait.CODEC);
         context.register("cosmetic", () -> CosmeticTrait.CODEC);
+        context.register("shader", () -> ShaderTrait.CODEC);
         context.register("custom_tag", () -> CustomTagTrait.CODEC);
         context.register("fluid_walk", () -> FluidWalkTrait.CODEC);
         context.register("damage_immunity", () -> DamageImmunityTrait.CODEC);

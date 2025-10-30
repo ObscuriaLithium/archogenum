@@ -3,6 +3,10 @@ plugins {
     id 'fabric-loom'
 }
 
+repositories {
+    mavenLocal()
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.layered {
@@ -10,9 +14,9 @@ dependencies {
         parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
     }
 
-    modImplementation("dev.obscuria:fragmentum-fabric:1.20.1-${fragmentum_version}")
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    modImplementation("dev.obscuria:fragmentum-fabric:1.20.1-${fragmentum_version}")
     modImplementation("com.terraformersmc:modmenu:7.2.2")
 
     modImplementation("curse.maven:cloth-config-348521:5729104")

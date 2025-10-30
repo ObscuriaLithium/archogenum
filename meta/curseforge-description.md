@@ -19,13 +19,13 @@ Archogenum is planned as part of a larger series of immersive, thematically conn
 
 # <p style="text-align:center">Features</p>
 
-- 🧬 **Genetic Engineering** – Extract genes from creatures and weave them together to create specialized or extraordinary xenotypes.
-- ♻️ **Dynamic Xenotypes** – Your xenotype isn't permanent. Swap, reforge, and experiment freely with different gene combinations during your journey.
-- 🔥 **Environmental Adaptation** – Craft xenotypes built for specific environments. For example, become heat-resistant and immune to Wither effects to explore the Nether while running across lava like it's solid ground.
-- ⚔️ **Unique Traits & Synergies** – Genes define your abilities, resistances, and weaknesses. Become undead and heal from poison, or transform into a hybrid predator with enhanced strength and speed.
-- 🐾 **Full Creature Xenotypes** – Xenotypes aren't limited to yourself. You can combine traits from any living creature: produce eggs, give milk, drop pork... or even implant xenotype traits into other creatures to boost their productivity, survival, or special abilities. Yes, you can implant milking glands into a friend xD
-- 🧪 **Experimental Gameplay** – Archogenum avoids grind-heavy mechanics and complicated multi-block setups. The focus is on exploration, experimentation, and creativity.
-- 🧰 **Fully Data-Driven** – Every gene, trait, and xenotype system is fully data-driven. You can edit existing genes or add entirely new ones without touching a single line of code.
+- 🧬 <span style="color:#CED4D9;">**Genetic Engineering**</span> – Extract genes from creatures and weave them together to create specialized or extraordinary xenotypes.
+- ♻️ <span style="color:#CED4D9;">**Dynamic Xenotypes**</span> – Your xenotype isn't permanent. Swap, reforge, and experiment freely with different gene combinations during your journey.
+- 🔥 <span style="color:#CED4D9;">**Environmental Adaptation**</span> – Craft xenotypes built for specific environments. For example, become heat-resistant and immune to Wither effects to explore the Nether while running across lava like it's solid ground.
+- ⚔️ <span style="color:#CED4D9;">**Unique Traits & Synergies**</span> – Genes define your abilities, resistances, and weaknesses. Become undead and heal from poison, or transform into a hybrid predator with enhanced strength and speed.
+- 🐾 <span style="color:#CED4D9;">**Full Creature Xenotypes**</span> – Xenotypes aren't limited to yourself. You can combine traits from any living creature: produce eggs, give milk, drop pork... or even implant xenotype traits into other creatures to boost their productivity, survival, or special abilities. Yes, you can implant milking glands into a friend xD
+- 🧪 <span style="color:#CED4D9;">**Experimental Gameplay**</span> – Archogenum avoids grind-heavy mechanics and complicated multi-block setups. The focus is on exploration, experimentation, and creativity.
+- 🧰 <span style="color:#CED4D9;">**Fully Data-Driven**</span> – Every gene, trait, and xenotype system is fully data-driven. You can edit existing genes or add entirely new ones without touching a single line of code.
 
 This mod is actively expanding – with more xenotypes, gene interactions, and ancient Archogenes planned. Community feedback and custom gene packs are welcome!
 
@@ -45,16 +45,16 @@ This mod is actively expanding – with more xenotypes, gene interactions, and a
 # <p style="text-align:center">Explore More by Obscuria</p>
 
 <p style="text-align:center">
-  <a href="https://www.curseforge.com/minecraft/mc-mods/ob-aquamirae"><img style="display: inline;" src="https://raw.githubusercontent.com/ObscuriaLithium/obscuria-collection-meta/refs/heads/main/cards/aquamirae.png" width="45%" /></a> 
-  <a href="https://www.curseforge.com/minecraft/mc-mods/obscure-tooltips"><img style="display: inline;" src="https://raw.githubusercontent.com/ObscuriaLithium/obscuria-collection-meta/refs/heads/main/cards/obscure-tooltips.png" width="45%" /></a>
+  <a href="https://www.curseforge.com/minecraft/mc-mods/ob-aquamirae"><img style="display: inline;" src="https://i.imgur.com/AWVa1rL.png" width="45%" /></a> 
+  <a href="https://www.curseforge.com/minecraft/mc-mods/obscure-tooltips"><img style="display: inline;" src="https://i.imgur.com/K0F3Uyq.png" width="45%" /></a>
 </p>
 <p style="text-align:center">
-  <a href="https://www.curseforge.com/minecraft/mc-mods/pillager-caravans"><img style="display: inline;" src="https://raw.githubusercontent.com/ObscuriaLithium/obscuria-collection-meta/refs/heads/main/cards/pillager-caravans.png" width="45%" /></a> 
-  <a href="https://www.curseforge.com/minecraft/mc-mods/ars-elixirum"><img style="display: inline;" src="https://raw.githubusercontent.com/ObscuriaLithium/obscuria-collection-meta/refs/heads/main/cards/ars-elixirum.png" width="45%" /></a>
+  <a href="https://www.curseforge.com/minecraft/mc-mods/pillager-caravans"><img style="display: inline;" src="https://i.imgur.com/lPK6BrB.png" width="45%" /></a> 
+  <a href="https://www.curseforge.com/minecraft/mc-mods/ars-elixirum"><img style="display: inline;" src="https://i.imgur.com/zMZKr3b.png" width="45%" /></a>
 </p>
 <p style="text-align:center">
-  <img style="display: inline;" src="https://raw.githubusercontent.com/ObscuriaLithium/obscuria-collection-meta/refs/heads/main/cards/blank-modrinth.png" width="45%" /> 
-  <img style="display: inline;" src="https://raw.githubusercontent.com/ObscuriaLithium/obscuria-collection-meta/refs/heads/main/cards/blank-modrinth.png" width="45%" />
+  <img style="display: inline;" src="https://i.imgur.com/rjJSLI0.png" width="45%" /> 
+  <img style="display: inline;" src="https://i.imgur.com/rjJSLI0.png" width="45%" />
 </p>
 <p style="text-align:center">
   <a href="https://www.patreon.com/Obscuria" rel="nofollow"><img style="display:inline" src="https://i.imgur.com/4lV9g9R.png" width="90%"/></a>

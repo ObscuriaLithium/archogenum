@@ -1,0 +1,18 @@
+{
+  "category": "harmful",
+  "texture": "archogenum:textures/gui/gene/spider.png",
+  "group": "spider",
+  "color": "#ff2033",
+  "max_expression": 1,
+  "metabolic_efficiency": 6,
+  "complexity": 3,
+  "cost": [
+    {
+      "item": "minecraft:spider_eye",
+      "count": 8
+    }
+  ],
+  "traits": [
+    "archogenum:shader/spider_vision"
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "type": "archogenum:shader",
+  "shader": "minecraft:shaders/post/invert.json"
+}

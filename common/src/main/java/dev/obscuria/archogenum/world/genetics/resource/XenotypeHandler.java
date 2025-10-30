@@ -5,10 +5,13 @@ import dev.obscuria.archogenum.world.enchantment.EchoGraspEnchantment;
 import dev.obscuria.archogenum.world.genetics.Xenotype;
 import dev.obscuria.archogenum.world.genetics.trait.LootDropper;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.loot.LootParams;
+
+import java.util.function.Consumer;
 
 public interface XenotypeHandler {
 
@@ -46,6 +49,10 @@ public interface XenotypeHandler {
 
     static boolean canStandOnFluid(LivingEntity entity, FluidState state) {
         return getXenotype(entity).canStandOnFluid(entity, state);
+    }
+
+    static void applyPostEffect(LivingEntity entity, Consumer<ResourceLocation> consumer) {
+        getXenotype(entity).applyPostEffect(entity, consumer);
     }
 
     static void save(LivingEntity entity, CompoundTag compound) {

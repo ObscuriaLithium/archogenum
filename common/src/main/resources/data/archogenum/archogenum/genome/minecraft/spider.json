@@ -1,0 +1,9 @@
+{
+  "entities": [
+    "minecraft:spider",
+    "minecraft:cave_spider"
+  ],
+  "genes": [
+    "archogenum:spider_vision"
+  ]
+}

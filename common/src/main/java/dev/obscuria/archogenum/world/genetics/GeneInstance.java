@@ -5,8 +5,10 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.obscuria.archogenum.world.genetics.basis.Gene;
 import dev.obscuria.archogenum.world.genetics.trait.ITrait;
 import dev.obscuria.archogenum.world.genetics.trait.LootDropper;
+import dev.obscuria.archogenum.world.genetics.trait.ShaderTrait;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -61,6 +63,14 @@ public record GeneInstance(
 
     public boolean canStandOnFluid(LivingEntity entity, FluidState state) {
         return anyTraitMatch(trait -> trait.canStandOnFluid(state));
+    }
+
+    public boolean applyPostEffect(LivingEntity entity, Consumer<ResourceLocation> consumer) {
+        return anyTraitMatch(trait -> {
+            if (!(trait instanceof ShaderTrait shader)) return false;
+            consumer.accept(shader.shader());
+            return true;
+        });
     }
 
     private void forEachTrait(Consumer<ITrait> consumer) {

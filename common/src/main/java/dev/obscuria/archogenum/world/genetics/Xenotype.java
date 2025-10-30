@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public record Xenotype(
@@ -108,6 +109,12 @@ public record Xenotype(
             return true;
         }
         return false;
+    }
+
+    public void applyPostEffect(LivingEntity entity, Consumer<ResourceLocation> consumer) {
+        for (var gene : genes) {
+            if (gene.applyPostEffect(entity, consumer)) return;
+        }
     }
 
     public boolean hasArchogene() {

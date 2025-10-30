@@ -1,5 +1,6 @@
 {
-  "key.archogenum.collection": "Gene Collection",
+  "key_category.archogenum": "Archogenum",
+  "key.archogenum.collection": "Open Collection",
 
   "toast.archogenum.new_vessel.title": "New Vessel Added!",
   "toast.archogenum.new_vessel.description": "Press %s for details",
@@ -79,6 +80,12 @@
   "gene.archogenum.lava_stride.desc": "The host's feet secrete a dense, heat-repellent membrane that solidifies lava beneath each step. Though the effect fades quickly, it allows brief, effortless traversal across molten terrain.",
   "gene.archogenum.pyrophobic_veins": "Pyrophobic Veins",
   "gene.archogenum.pyrophobic_veins.desc": "The host's vascular system reacts violently to heat. Exposure to fire or lava causes intense internal stress, greatly increasing burn damage.",
+  "gene.archogenum.creeper_vision": "Creeper Vision",
+  "gene.archogenum.creeper_vision.desc": "The host perceives the world in shades of green, with every color drained away.",
+  "gene.archogenum.spider_vision": "Spider Vision",
+  "gene.archogenum.spider_vision.desc": "Multiple eyes split the host's view into separate fragments. Each movement is seen from several angles at once, overwhelming at first but granting sharper awareness in the dark.",
+  "gene.archogenum.ender_vision": "Ender Vision",
+  "gene.archogenum.ender_vision.desc": "The host perceives the world through pale sepia tones and inverted shadows, giving ordinary scenes an uncanny, otherworldly cast.",
 
   "gene.instance_name_format": "%1$s %2$s",
 
@@ -97,6 +104,9 @@
   "trait.archogenum.cosmetic/power_aura": "Power Aura",
   "trait.archogenum.cosmetic/vex_wings": "Vex Wings",
   "trait.archogenum.cosmetic/warden_tendrils": "Warden Tendrils",
+  "trait.archogenum.shader/creeper_vision": "Creeper Vision",
+  "trait.archogenum.shader/spider_vision": "Spider Vision",
+  "trait.archogenum.shader/ender_vision": "Ender Vision",
   "trait.archogenum.water_intolerance": "Water Intolerance",
   "trait.archogenum.sunlight_intolerance": "Sunlight Intolerance",
   "trait.archogenum.keep_inventory": "Keep Inventory",

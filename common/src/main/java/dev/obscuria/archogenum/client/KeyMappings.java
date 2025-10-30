@@ -8,9 +8,9 @@ import org.lwjgl.glfw.GLFW;
 
 public interface KeyMappings {
 
-    String CATEGORY = "key_category.archo";
+    String CATEGORY = "key_category.archogenum";
 
-    KeyMapping COLLECTION = new KeyMapping("key.archo.collection", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_R, CATEGORY);
+    KeyMapping COLLECTION = new KeyMapping("key.archogenum.collection", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_R, CATEGORY);
 
     static void collectionPressed() {
         if (Minecraft.getInstance().screen != null) return;

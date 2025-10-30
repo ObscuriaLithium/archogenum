@@ -4,6 +4,7 @@
   ],
   "genes": [
     "archogenum:voltaic_burst",
-    "archogenum:pyrophobic_veins"
+    "archogenum:pyrophobic_veins",
+    "archogenum:creeper_vision"
   ]
 }

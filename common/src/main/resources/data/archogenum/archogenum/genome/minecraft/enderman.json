@@ -1,0 +1,9 @@
+{
+  "entities": [
+    "minecraft:enderman"
+  ],
+  "genes": [
+    "archogenum:ender_vision",
+    "archogenum:hydrosensitive"
+  ]
+}

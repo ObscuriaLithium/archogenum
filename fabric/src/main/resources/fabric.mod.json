@@ -18,6 +18,9 @@
   "entrypoints": {
     "main": [
       "dev.obscuria.archogenum.fabric.FabricArchogenum"
+    ],
+    "client": [
+      "dev.obscuria.archogenum.fabric.FabricArchogenumClient"
     ]
   },
   "mixins": [
